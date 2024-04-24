@@ -9,7 +9,7 @@ async function getContact() {
 
     let contact = await navigator.contacts.select(['name', 'tel', 'icon'], { multiple: false });
 
-    alert(`${contact[0].name[0]};;;${contact[0].tel[0]}`);
+    alert(contact);
 
     return `${contact[0].name[0]};;;${contact[0].tel[0]};;;${contact[0].icon[0]}`;
 }
