@@ -9,5 +9,9 @@ async function getContact() {
 
     let contact = await navigator.contacts.select(['name', 'tel', 'icon'], { multiple: false });
 
-    return `${contact[0].name[0]};;;${contact[0].tel[0]};;;${contact[0].icon[0].toString()}`;
+    let name = contact[0].name[0];
+    let phone = contact[0].tel[0];
+    let icon = Uint8Array(await contact[0].icon[0].arrayBuffer());
+
+    return [name, phone, icon];
 }
