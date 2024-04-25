@@ -11,7 +11,7 @@ async function getContact() {
 
     let name = contact[0].name[0];
     let phone = contact[0].tel[0];
-    let icon = Uint8Array(await contact[0].icon[0].arrayBuffer());
+    let icon = new Uint8Array(await contact[0].icon[0].arrayBuffer());
 
     return [name, phone, icon];
 }
