@@ -1,16 +1,10 @@
 async function getContact() {
-    if (location.protocol !== 'https:') {
-        location.replace(`https:${location.href.substring(location.protocol.length)}`);
-    }
-
     if (!navigator.contacts || !window.ContactsManager) {
         return null;
     }
 
-    let propertiesAvailable = await navigator.contacts.getProperties();
+    const contact = await navigator.contacts.select(['name', 'tel', 'icon'], { multiple: false });
 
-    //then we open the contact picker with these properties
-    let contacts = await navigator.contacts.select(propertiesAvailable, { multiple: true });
     const name = contact[0].name[0];
 
     const phone = contact[0].tel[0];
