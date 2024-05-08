@@ -7,8 +7,10 @@ async function getContact() {
         return null;
     }
 
-    const contact = await navigator.contacts.select(['name', 'tel', 'icon'], { multiple: false });
+    let propertiesAvailable = await navigator.contacts.getProperties();
 
+    //then we open the contact picker with these properties
+    let contacts = await navigator.contacts.select(propertiesAvailable, { multiple: true });
     const name = contact[0].name[0];
 
     const phone = contact[0].tel[0];
