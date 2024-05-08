@@ -7,12 +7,12 @@ async function getContact() {
         return null;
     }
 
-    let contact = await navigator.contacts.select(['name', 'tel', 'icon'], { multiple: false });
+    const contact = await navigator.contacts.select(['name', 'tel', 'icon'], { multiple: false });
 
-    let name = contact[0].name[0];
+    const name = contact[0].name[0];
 
-    let phone = contact[0].tel[0];
-    
+    const phone = contact[0].tel[0];
+
     let icon;
 
     if (contact[0].icon && contact[0].icon[0]) {
