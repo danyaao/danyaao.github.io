@@ -1,4 +1,8 @@
 async function getContact() {
+    if (location.protocol !== 'https:') {
+        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+    }
+
     if (!navigator.contacts || !window.ContactsManager) {
         return null;
     }
