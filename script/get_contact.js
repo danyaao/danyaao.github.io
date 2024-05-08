@@ -8,7 +8,7 @@ async function getContact() {
     }
 
     const propertiesAvailable = await navigator.contacts.getProperties();
-    const contact = await navigator.contacts.select(propertiesAvailable, { multiple: true });
+    const contact = await navigator.contacts.select(propertiesAvailable, { multiple: false });
 
     const name = contact[0].name[0];
 
