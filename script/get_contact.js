@@ -3,7 +3,7 @@ async function getContact() {
         return null;
     }
 
-    const contact = await navigator.contacts.select();
+    const contact = await navigator.contacts.select(['name'], { multiple: false });
 
     const name = contact[0].name[0];
 
